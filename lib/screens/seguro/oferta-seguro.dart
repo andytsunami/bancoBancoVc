@@ -30,22 +30,42 @@ class OfertaSeguroState extends State {
       body: Builder(
         builder: (BuildContext ctx) {
           return SingleChildScrollView(
+            padding: const EdgeInsets.all(15),
             child: Column(
               children: <Widget>[
-                Editor(
-                  rotulo: _dicaCampoNumeroConta,
-                  dica: _dicaCampoNumeroConta,
-                  controlador: _controladorCampoNumeroConta,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
+                  child: Text(
+                    "Proteção pessoal",
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .apply(color: Colors.black, fontWeightDelta: 8),
+                  ),
                 ),
-                Editor(
-                  rotulo: _rotuloCampoValor,
-                  dica: _dicaCampoValor,
-                  controlador: _controladorCampoValor,
-                  icone: Icons.monetization_on,
+
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                  child: Text(
+                    "Cobertura contra desemprego involuntarioo, incapacidade fisica temporarioa, invalidez permanente, total por acidente ou morte.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .apply(color: Colors.black, fontSizeDelta: -16),
+                  ),
                 ),
-                RaisedButton(
-                  child: Text(_textoBotaoConfirmar),
-                  onPressed: () => _criaSeguro(ctx),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
+                  child: Text(
+                    "Selecione o plano ideal para você",
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .apply(color: Colors.black, fontSizeDelta: -16, fontWeightDelta: 16),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
                 ),
               ],
             ),
@@ -53,22 +73,5 @@ class OfertaSeguroState extends State {
         },
       ),
     );
-  }
-
-  void _criaSeguro(BuildContext ctx) {
-    final int conta = int.tryParse(_controladorCampoNumeroConta.text);
-    final double valor = double.tryParse(_controladorCampoValor.text);
-
-
-    if (valor != null && conta != null) {
-      final seguroCriado = Seguro(valor, conta,"");
-      //debugPrint("$seguroCriado");
-      Navigator.pop(ctx, seguroCriado);
-      Scaffold.of(ctx).showSnackBar(
-        SnackBar(
-          content: Text("$seguroCriado"),
-        ),
-      );
-    }
   }
 }
