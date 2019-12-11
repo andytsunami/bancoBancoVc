@@ -3,20 +3,20 @@ import 'package:banco_banco_vc/models/seguro/seguro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const _tituloAppBar = "Formulario Seguro";
+const _tituloAppBar = "Nome do seguro aqui";
 const _rotuloCampoValor = "Valor";
 const _dicaCampoValor = "0.00";
 const _dicaCampoNumeroConta = "0000";
 const _textoBotaoConfirmar = "Confirmar";
 
-class FormularioSeguro extends StatefulWidget {
+class OfertaSeguro extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return FormularioSeguroState();
+    return OfertaSeguroState();
   }
 }
 
-class FormularioSeguroState extends State {
+class OfertaSeguroState extends State {
   final TextEditingController _controladorCampoNumeroConta =
       TextEditingController();
   final TextEditingController _controladorCampoValor = TextEditingController();

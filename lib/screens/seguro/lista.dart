@@ -1,10 +1,13 @@
+import 'package:banco_banco_vc/components/card-seguro.dart';
+import 'package:banco_banco_vc/components/global.dart';
 import 'package:banco_banco_vc/models/seguro/seguro.dart';
+import 'package:banco_banco_vc/screens/seguro/oferta-seguro.dart';
 import 'package:flutter/material.dart';
 
-const _tituloAppBar = "Teste Seguros para você";
+const _tituloAppBar = "Seguros e assistências";
 
 class ListaSeguro extends StatefulWidget {
-  final List<Seguro> _seguros = List();
+
 
 
   @override
@@ -17,24 +20,96 @@ class ListaSeguroState extends State<ListaSeguro> {
 
   @override
   Widget build(BuildContext context) {
-
-    //Mockup de seguros
-    widget._seguros.add(Seguro(100,200,"Proteção Premiada"));
-    widget._seguros.add(Seguro(100,200,"Seguro PET"));
-    widget._seguros.add(Seguro(100,200,"Proteção Financeira"));
-    widget._seguros.add(Seguro(100,200,"Proteção Familiar"));
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(_tituloAppBar),
+        title: Padding(
+          padding: const EdgeInsets.fromLTRB(70,0,0,0), //Não consegui fazer o center
+          child: Text(_tituloAppBar),
+        ),
       ),
-      body: ListView.builder(
-        itemCount: widget._seguros.length,
-        itemBuilder: (context, indice) {
-          final seguro = widget._seguros[indice];
-          return ItemSeguro(seguro);
-        },
-      ),
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15,0, 15, 15),
+                //const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
+                      child: Text(
+                        "Escolha a melhor proteção para você",
+                        style: Theme.of(context)
+                            .textTheme
+                            .display1
+                            .apply(color: Colors.black, fontWeightDelta: 8),
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                      child: Text(
+                        "Em poucos passos proteja seus bens, fique seguro e tranquilo",
+                        style: Theme.of(context)
+                            .textTheme
+                            .display1
+                            .apply(color: Colors.black, fontSizeDelta: -16),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
+                      child: Text(
+                        "Proteções disponiveis para você:",
+                        style: Theme.of(context)
+                            .textTheme
+                            .display1
+                            .apply(color: Colors.black, fontSizeDelta: -16, fontWeightDelta: 16),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+
+                    Container(
+                      height: MediaQuery.of(context).size.height / 4, //tamanho da tela
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: seguroList.length,
+                        itemBuilder: (ctx, i) {
+                          return GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (ctx) => OfertaSeguro(),
+                              ),
+                            ),
+                            child: Container(
+                              width: 150,
+                              margin:
+                              const EdgeInsets.symmetric(horizontal: 11.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Stack(
+                                  children: <Widget>[
+                                    CardSeguro(seguroList[i])
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      )
     );
   }
 
@@ -45,34 +120,11 @@ class ListaSeguroState extends State<ListaSeguro> {
         () {
           setState(
             () {
-              widget._seguros.add(seguroRecebido);
+              seguroList.add(seguroRecebido);
             },
           );
         },
       );
     }
-  }
-}
-
-class ItemSeguro extends StatelessWidget {
-  final Seguro _seguro;
-
-  ItemSeguro(this._seguro);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-             ListTile(
-              leading: Icon(Icons.album),
-              title: Text(this._seguro.nome),
-               subtitle: Text(this._seguro.descricao),
-            )
-          ],
-        ),
-      );
-
   }
 }
