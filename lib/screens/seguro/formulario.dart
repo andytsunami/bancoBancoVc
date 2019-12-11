@@ -59,8 +59,9 @@ class FormularioSeguroState extends State {
     final int conta = int.tryParse(_controladorCampoNumeroConta.text);
     final double valor = double.tryParse(_controladorCampoValor.text);
 
+
     if (valor != null && conta != null) {
-      final seguroCriado = Seguro(valor, conta);
+      final seguroCriado = Seguro(valor, conta,"");
       //debugPrint("$seguroCriado");
       Navigator.pop(ctx, seguroCriado);
       Scaffold.of(ctx).showSnackBar(

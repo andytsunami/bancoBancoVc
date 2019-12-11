@@ -1,10 +1,11 @@
 import 'package:banco_banco_vc/models/seguro/seguro.dart';
 import 'package:flutter/material.dart';
 
-const _tituloAppBar = "Seguros para você";
+const _tituloAppBar = "Teste Seguros para você";
 
 class ListaSeguro extends StatefulWidget {
   final List<Seguro> _seguros = List();
+
 
   @override
   State<StatefulWidget> createState() {
@@ -13,8 +14,15 @@ class ListaSeguro extends StatefulWidget {
 }
 
 class ListaSeguroState extends State<ListaSeguro> {
+
   @override
   Widget build(BuildContext context) {
+
+    //Mockup de seguros
+    widget._seguros.add(Seguro(100,200,"Proteção Premiada"));
+    widget._seguros.add(Seguro(100,200,"Seguro PET"));
+    widget._seguros.add(Seguro(100,200,"Proteção Financeira"));
+    widget._seguros.add(Seguro(100,200,"Proteção Familiar"));
 
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +31,6 @@ class ListaSeguroState extends State<ListaSeguro> {
       body: ListView.builder(
         itemCount: widget._seguros.length,
         itemBuilder: (context, indice) {
-          Navigator.pop(context, Seguro(100,200));
           final seguro = widget._seguros[indice];
           return ItemSeguro(seguro);
         },
@@ -54,19 +61,18 @@ class ItemSeguro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
+    return Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
              ListTile(
               leading: Icon(Icons.album),
-              title: Text(this._seguro.descricao),
-               subtitle: Text("Algum outro texto??"),
+              title: Text(this._seguro.nome),
+               subtitle: Text(this._seguro.descricao),
             )
           ],
         ),
-      ),
-    );
+      );
+
   }
 }
