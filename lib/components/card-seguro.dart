@@ -13,8 +13,8 @@ class CardSeguro extends StatelessWidget{
     return ClipRRect(
       borderRadius: BorderRadius.circular(8.0),
       child: Container(
-        width: MediaQuery.of(context).size.width / 1.90,
-        height: MediaQuery.of(context).size.width / 3,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: MyColors.lighterGray,
         ),
