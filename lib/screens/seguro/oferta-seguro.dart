@@ -10,16 +10,24 @@ const _dicaCampoNumeroConta = "0000";
 const _textoBotaoConfirmar = "Confirmar";
 
 class OfertaSeguro extends StatefulWidget {
+
+  final Seguro _seguro;
+
+  OfertaSeguro(this._seguro);
+
   @override
   State<StatefulWidget> createState() {
-    return OfertaSeguroState();
+    return OfertaSeguroState(this._seguro);
   }
 }
 
 class OfertaSeguroState extends State {
+  final Seguro _seguro;
   final TextEditingController _controladorCampoNumeroConta =
       TextEditingController();
   final TextEditingController _controladorCampoValor = TextEditingController();
+
+  OfertaSeguroState(this._seguro);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +44,7 @@ class OfertaSeguroState extends State {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
                   child: Text(
-                    "Proteção pessoal",
+                    this._seguro.nome,
                     style: Theme.of(context)
                         .textTheme
                         .display1
@@ -47,7 +55,7 @@ class OfertaSeguroState extends State {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: Text(
-                    "Cobertura contra desemprego involuntarioo, incapacidade fisica temporarioa, invalidez permanente, total por acidente ou morte.",
+                    this._seguro.descricao,
                     style: Theme.of(context)
                         .textTheme
                         .display1

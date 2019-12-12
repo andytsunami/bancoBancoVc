@@ -2,12 +2,13 @@ class Seguro {
   final double valor;
   final int codigo;
   final String nome;
-  final String descricao = "Um bom seguro para voce";
+  final String descricao;
 
   Seguro(
     this.valor,
     this.codigo,
     this.nome,
+    this.descricao,
   );
 
   @override

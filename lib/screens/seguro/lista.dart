@@ -77,7 +77,7 @@ class ListaSeguroState extends State<ListaSeguro> {
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => OfertaSeguro(),
+                                builder: (context) => OfertaSeguro(seguroList[index]),
                               ),
                             ),
                             child: Container(
