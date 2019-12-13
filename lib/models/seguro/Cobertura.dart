@@ -4,6 +4,6 @@ class Cobertura{
   String tooltip;
 
   Cobertura(this.label, this.descricao, this.tooltip);
-//oi
+
 
 }
