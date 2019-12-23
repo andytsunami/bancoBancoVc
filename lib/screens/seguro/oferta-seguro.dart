@@ -1,4 +1,4 @@
-import 'package:banco_banco_vc/models/seguro/seguro.dart';
+import 'package:flutapp_pseg_base_venda_digital/models/seguro/seguro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

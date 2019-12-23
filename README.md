@@ -1,4 +1,4 @@
-# banco_banco_vc
+# flutapp_pseg_base_venda_digital
 
 A new Flutter project.
 

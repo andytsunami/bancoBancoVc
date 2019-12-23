@@ -1,6 +1,6 @@
-import 'package:banco_banco_vc/models/seguro/Cobertura.dart';
-import 'package:banco_banco_vc/models/seguro/Plano.dart';
-import 'package:banco_banco_vc/models/seguro/seguro.dart';
+import 'package:flutapp_pseg_base_venda_digital/models/seguro/Cobertura.dart';
+import 'package:flutapp_pseg_base_venda_digital/models/seguro/Plano.dart';
+import 'package:flutapp_pseg_base_venda_digital/models/seguro/seguro.dart';
 import 'package:flutter/material.dart';
 
 class MyColors {
@@ -12,7 +12,7 @@ class MyColors {
 }
 
 final List<Seguro> seguroList = [
-    Seguro(100,200,"Proteção Pessoal","Cobertura contra desemprego involuntarioo, incapacidade fisica temporarioa, invalidez permanente, total por acidente ou morte."),
+    Seguro(100,200,"Proteção Pessoaaal","Cobertura contra desemprego involuntarioo, incapacidade fisica temporarioa, invalidez permanente, total por acidente ou morte."),
     Seguro(100,200,"Seguro PET","Deixe seu pet seguro"),
     Seguro(100,200,"Proteção Financeira","Proteja seu cartão"),
     Seguro(100,200,"Proteção Familiar","Proteja sua familia"),

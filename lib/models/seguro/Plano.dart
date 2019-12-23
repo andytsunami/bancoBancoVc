@@ -1,4 +1,4 @@
-import 'package:banco_banco_vc/models/seguro/Cobertura.dart';
+import 'package:flutapp_pseg_base_venda_digital/models/seguro/Cobertura.dart';
 
 class Plano{
   String nome;

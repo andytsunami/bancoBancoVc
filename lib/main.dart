@@ -1,4 +1,4 @@
-import 'package:banco_banco_vc/screens/seguro/lista.dart';
+import 'package:flutapp_pseg_base_venda_digital/screens/seguro/lista.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(BancoBancoVc());

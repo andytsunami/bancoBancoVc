@@ -1,7 +1,6 @@
-import 'package:banco_banco_vc/components/card-seguro.dart';
-import 'package:banco_banco_vc/components/global.dart';
-import 'package:banco_banco_vc/models/seguro/seguro.dart';
-import 'package:banco_banco_vc/screens/seguro/oferta-seguro.dart';
+import 'package:flutapp_pseg_base_venda_digital/components/card-seguro.dart';
+import 'package:flutapp_pseg_base_venda_digital/components/global.dart';
+import 'package:flutapp_pseg_base_venda_digital/screens/seguro/oferta-seguro.dart';
 import 'package:flutter/material.dart';
 
 const _tituloAppBar = "Seguros e assistências";
